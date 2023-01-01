@@ -1,0 +1,162 @@
+*,
+*::before,
+*::after {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+}
+ul,
+ol,
+li {
+	list-style: none;
+}
+img {
+	vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: inherit;
+	font-size: inherit;
+}
+html,
+body {
+	height: 100%;
+	line-height: 1;
+}
+button,
+input {
+	font-weight: inherit;
+	font-size: inherit;
+	color: inherit;
+	font-family: inherit;
+}
+button {
+	cursor: pointer;
+	background-color: inherit;
+}
+.wrapper{
+min-height: 100%;
+overflow: clip;
+position: relative;
+}
+.page{
+
+}
+.page__clouds{
+position: absolute;
+width: 100%;
+height: 100%;
+top: 0;
+left: 0;
+display: flex;
+gap: 10%;
+justify-content: space-evenly;
+
+animation: clouds-show 1s ease forwards ;
+}
+.page__cloud{
+transform-origin: top;
+z-index: 2;
+}
+.page__cloud:first-child{
+ animation: clouds 7s infinite  ease-in-out alternate;
+}
+.page__cloud:nth-child(2){
+    animation: clouds 6.6s infinite  ease-in-out alternate-reverse;
+}
+.page__cloud img{
+width: 100%;
+height: 100%;
+object-fit: contain;
+object-position: top;
+}
+@keyframes clouds {
+    0%{
+        transform: rotate(-5deg);
+    }
+
+    100%{
+        transform: rotate(5deg);
+    }
+
+}
+@keyframes clouds-show {
+    0%{
+        transform: translate(0px, -100%);
+    }
+
+    100%{
+        transform: translate(0px, 0%);
+    }
+
+}
+
+.page__moon{
+
+}
+.moon{
+position: absolute;
+width: 100%;
+height: 100%;
+top: 0;
+left: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.moon__box{
+width: 90vh;
+max-width: 80%;
+transform: translate(-15%, 0px);
+}
+.moon__item{
+background-color: #000;
+display: block;
+padding-bottom: 100%;
+border-radius: 50%;
+position: relative;
+transform-origin: bottom;
+
+animation: moon 5s ease alternate forwards 0.5s;
+}
+.moon__item::before{
+    background-color: #fff;
+    content: "";
+
+position: absolute;
+width: 102%;
+top: -1%;
+left: -1%;
+height: 102%;
+border-radius: 50%;
+animation: moon-line 4s ease alternate forwards 0.5s;
+}
+@keyframes moon {
+    0%{
+        transform: rotate(-10deg);
+    }
+    30%{
+        transform: rotate(10deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+
+}
+@keyframes moon-line{
+    0%{
+        transform: translate(0px, 0px);
+    }
+    100%{
+        transform: translate(-30%, 0px);
+    }
+}
